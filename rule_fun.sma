@@ -25,23 +25,23 @@ new g_players[MAX_PLAYERS];
 
 public plugin_init()
 {
-	register_rule("Remove Respawn", "respawn_remove_enable", "", "rule_fun", 750, 1);
+	register_rule("Remove Respawn", "respawn_remove_enable", "", "rule_fun", 1000, 1);
 
-	register_rule("Blind all players for 2 seconds", "blind_enable", "", "rule_fun", 150, 1);
+	register_rule("Blind all players for 2 seconds", "blind_enable", "", "rule_fun", 300, 1);
 
 	register_rule("25% chance to kill one random player", "randPlayer_kill", "", "rule_fun", 50, 2);
 
-	register_rule("Kill a player you choose", "player_kill", "", "rule_fun", 350, 1, 1);
+	register_rule("Kill a player you choose", "player_kill", "", "rule_fun", 1000, 1, 1);
 
-	register_rule("Return all players to ct base", "players_return", "", "rule_fun", 1250, 1);
+	register_rule("Return all players to ct base", "players_return", "", "rule_fun", 3000, 1);
 
 	register_rule("Slap a random player", "player_slap", "", "rule_fun", 20, 3)
 
-	register_rule("Slap all players", "players_slap", "", "rule_fun", 75, 3);
+	register_rule("Slap all players", "players_slap", "", "rule_fun", 150, 3);
 	
-	register_rule("Burn all players for 10 seconds", "players_burn", "", "rule_fun", 750, 1);
+	register_rule("Burn all players for 10 seconds", "players_burn", "", "rule_fun", 3000, 1);
 
-	register_rule("Strip all players' weapons", "players_strip", "", "rule_fun", 750, 1);
+	register_rule("Strip all players' weapons", "players_strip", "", "rule_fun", 1500, 1);
 
 	g_msgScreenFade = get_user_msgid("ScreenFade") 
 	g_msgDamage = get_user_msgid("Damage")

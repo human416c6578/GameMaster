@@ -10,11 +10,11 @@ new bool:g_bSlowDown;
 
 public plugin_init()
 {
-	register_rule("Remove bunnyhop", "bunnyhop_remove_enable", "bunnyhop_remove_disable", "rule_bhop", 3500, 1);
-	register_rule("NoSpeed bunnyhop", "bunnyhop_nospeed_enable", "bunnyhop_nospeed_disable", "rule_bhop", 2500, 1);
-	register_rule("Force 10 AirAccelerate", "force_aa_10_enable", "force_aa_10_disable", "rule_bhop", 2500, 1);
+	register_rule("Remove bunnyhop", "bunnyhop_remove_enable", "bunnyhop_remove_disable", "rule_bhop", 7000, 1);
+	register_rule("NoSpeed bunnyhop", "bunnyhop_nospeed_enable", "bunnyhop_nospeed_disable", "rule_bhop", 5000, 1);
+	register_rule("Force 100 AirAccelerate", "force_aa_100_enable", "force_aa_100_disable", "rule_bhop", 5000, 1);
 
-	register_rule("Players can't stop jumping", "force_jumping_enable", "force_jumping_disable", "rule_bhop", 500, 1);
+	register_rule("Players can't stop jumping", "force_jumping_enable", "force_jumping_disable", "rule_bhop", 1500, 1);
 }
 
 public client_PreThink(id) {
@@ -44,11 +44,11 @@ public client_PreThink(id) {
 	return PLUGIN_HANDLED
 }
 
-public force_aa_10_enable(id){
+public force_aa_100_enable(id){
 	server_cmd("sv_airaccelerate 10");
 }
 
-public force_aa_10_disable(){
+public force_aa_100_disable(){
 	server_cmd("sv_airaccelerate 9999999");
 }
 

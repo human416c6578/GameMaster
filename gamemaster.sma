@@ -9,13 +9,16 @@
 
 native isPlayerVip(id);
 
+native reg_is_user_logged(id);
+native reg_is_user_registered(id);
+
 #define PLUGIN "T GameMaster"
 #define VERSION "0.1"
 #define AUTHOR "MrShark45"
 
 #define MAX_RULES 100
 
-enum _: eRule
+enum eRule
 {
 	eName[128],
 	eFunctionEnable[128],
@@ -78,7 +81,9 @@ public terrorist_won(){
 	new terrorists[32],iNum, terro;
 	get_players(terrorists, iNum, "ae", "TERRORIST");
 	terro = terrorists[0];
+	// gain double if the player is vip
 	new gain = isPlayerVip(terro)? 100 : 50;
+	// gain back half of the credits spent
 	new credits = (g_iRulesCredits/2) + gain;
 	
 	set_user_credits(terro,  get_user_credits(terro) + credits);
@@ -139,6 +144,11 @@ public register_rule_native(numParams){
 public gm_menu(id, page){
 	if(cs_get_user_team(id) != CS_TEAM_T)
 		return PLUGIN_CONTINUE;
+    if(!reg_is_user_logged(id)){
+		CC_SendMessage(id, "&x01Trebuie sa fii logat pentru a folosi aceasta comanda!");
+        return PLUGIN_CONTINUE;
+    }
+
 	new title[128];
 	new credits = get_user_credits(id);
 	format(title, sizeof(title), "\y%d credits \w- \rGameMaster Menu!:", credits);

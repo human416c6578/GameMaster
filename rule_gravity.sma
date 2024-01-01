@@ -11,11 +11,11 @@ new Float:gravity;
 
 public plugin_init()
 {
-	register_rule("Force gravity 800", "force_gravity_800_enable", "force_gravity_800_disable", "rule_gravity", 800, 1);
-	register_rule("Force gravity 400", "force_gravity_400_enable", "force_gravity_400_disable", "rule_gravity", 400, 1);
+	register_rule("Force gravity 800", "force_gravity_800_enable", "force_gravity_800_disable", "rule_gravity", 1600, 1);
+	register_rule("Force gravity 400", "force_gravity_400_enable", "force_gravity_400_disable", "rule_gravity", 800, 1);
 
-	register_rule("2000 gravity for 2 seconds", "force_gravity_2000_enable", "force_gravity_2000_disable", "rule_gravity", 300, 1);
-	register_rule("Disable gravity for 2 seconds", "disable_gravity_enable", "disable_gravity_disable", "rule_gravity", 300, 1);
+	register_rule("2000 gravity for 2 seconds", "force_gravity_2000_enable", "force_gravity_2000_disable", "rule_gravity", 750, 1);
+	register_rule("Disable gravity for 2 seconds", "disable_gravity_enable", "disable_gravity_disable", "rule_gravity", 750, 1);
 
 	register_rule("Enable FallDamage", "falldamage_enable", "falldamage_disable", "rule_gravity", 750, 1);
 }
